@@ -73,10 +73,6 @@ This will open the Swagger UI interface.
 
 Data does not need to persist when your application stops. 
 
-## Submitting Your Solution
-
-Provide a link to a public repository, such as GitHub or BitBucket, that contains your code to the provided link through Greenhouse.
-
 ---
 ## Summary of API Specification
 
