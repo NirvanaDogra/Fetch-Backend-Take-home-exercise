@@ -84,7 +84,7 @@ public class PointsServiceImpl implements PointsService {
     }
 
     private int calculateItemPairPoints(List<Item> items) {
-        int points = items.size() / 2 * POINTS_5;
+        int points = ((int) items.size() / 2) * POINTS_5;
         log.info("Item pair points: {}", points);
         return points;
     }
@@ -94,6 +94,7 @@ public class PointsServiceImpl implements PointsService {
                 .filter(item -> item.getShortDescription().trim().length() % 3 == 0)
                 .map(item -> Math.ceil(item.getPrice() * ITEM_DESCRIPTION_MULTIPLICAND))
                 .reduce(0.0, Double::sum);
+        log.info("{}  trimmed length of the item description", (int)totalDiscountedSum);
         return (int) totalDiscountedSum;
     }
 

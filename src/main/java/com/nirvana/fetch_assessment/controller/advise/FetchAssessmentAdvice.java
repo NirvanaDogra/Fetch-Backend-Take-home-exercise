@@ -14,13 +14,15 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.nirvana.fetch_assessment.constants.FetchAssessmentConstants.PARSING_ERROR;
+
 @ControllerAdvice
 @Log4j2
 public class FetchAssessmentAdvice {
     @ExceptionHandler({ConstraintViolationException.class})
     private ResponseEntity<List<Error>> handleConstraintViolationException(ConstraintViolationException exception) {
         List<Error> errorList = new ArrayList<>();
-        for(val it: exception.getConstraintViolations()) {
+        for (val it : exception.getConstraintViolations()) {
             Error error = new Error(it.getPropertyPath().toString(), it.getMessage());
             errorList.add(error);
         }
@@ -29,7 +31,7 @@ public class FetchAssessmentAdvice {
 
     @ExceptionHandler({HttpMediaTypeNotAcceptableException.class, HttpMessageNotReadableException.class})
     private ResponseEntity<List<Error>> handleHttpMediaTypeNotAcceptableException(Exception ex) {
-        List<Error> errorList  = List.of(new Error("",ex.getMessage()));
+        List<Error> errorList = List.of(new Error(PARSING_ERROR, ex.getMessage()));
         return ResponseEntity.badRequest().body(errorList);
     }
 

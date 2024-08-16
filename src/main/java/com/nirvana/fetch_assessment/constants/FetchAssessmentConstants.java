@@ -8,4 +8,5 @@ public class FetchAssessmentConstants {
     public static  final String REQUEST_FAILED = "Request Failed";
     public static final String INVALID_RECEIPT = "The receipt is invalid";
     public static final String NOT_FOUND_RECEIPT = "No receipt found for that id";
+    public static final String PARSING_ERROR = "Parsing Error";
 }

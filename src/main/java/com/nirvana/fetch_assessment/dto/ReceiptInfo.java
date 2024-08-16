@@ -15,18 +15,6 @@ import java.time.LocalTime;
 import java.util.Date;
 import java.util.List;
 
-/**
- * {
- * "retailer": "Walgreens",
- * "purchaseDate": "2022-01-02",
- * "purchaseTime": "08:13",
- * "total": "2.65",
- * "items": [
- * {"shortDescription": "Pepsi - 12-oz", "price": "1.25"},
- * {"shortDescription": "Dasani", "price": "1.40"}
- * ]
- * }
- */
 @Data
 @Entity
 @AllArgsConstructor
@@ -34,6 +22,7 @@ import java.util.List;
 public class ReceiptInfo {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
+    @Schema(hidden = true)
     private String uuid;
 
     @NotNull
@@ -65,7 +54,7 @@ public class ReceiptInfo {
     private LocalTime purchaseTime;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "purchase_id")
+    @JoinColumn(name = "receipt_id")
     @NotEmpty
     @Schema(requiredMode = Schema.RequiredMode.REQUIRED, minLength = 1)
     private List<Item> items;

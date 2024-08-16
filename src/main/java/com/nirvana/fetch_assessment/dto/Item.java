@@ -21,6 +21,7 @@ import lombok.NoArgsConstructor;
 public class Item {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
+    @Schema(hidden = true)
     private String id;
 
     @NotNull
