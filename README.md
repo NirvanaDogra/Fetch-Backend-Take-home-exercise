@@ -56,7 +56,6 @@ This will open the Swagger UI interface where you can explore the available API 
       ],
       "total": "9.00"
     }'
-</code>
 ````
 
 
