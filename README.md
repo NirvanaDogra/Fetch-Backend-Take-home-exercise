@@ -11,6 +11,7 @@ To build and run the Docker image, follow these steps:
 
 <h3>Build the Docker image:</h3>
 Note: You must be in the folder containing the code before running the commands
+
 ````code
 docker build -t #your-image-name .
 ````
