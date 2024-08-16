@@ -35,6 +35,7 @@ Open a web browser and navigate to:
 This will open the Swagger UI interface where you can explore the available API endpoints, view documentation, and test requests.
 
 <h3>API: /receipts/process</h3>
+
 ````code
     curl --location 'localhost:8080/receipts/process' \
     --header 'Content-Type: application/json' \
@@ -63,6 +64,7 @@ This will open the Swagger UI interface where you can explore the available API 
 
 
 <h3>API: /receipts/{id}/points</h3>
+
 ````code
     curl --location 'localhost:8080/receipts/{id}/points'
 ````
