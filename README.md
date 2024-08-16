@@ -11,14 +11,18 @@ To build and run the Docker image, follow these steps:
 
 <h3>Build the Docker image:</h3>
 
+````code
+docker build -t #your-image-name .
+````
 
-<code>docker build -t #your-image-name .</code>
 
 <h3> Run the Docker container:</h3>
-<div>
-<code>docker run -p 8080:8080 --runtime=runc -t -d #your-image-name</code><br>
+
+````code
+docker run -p 8080:8080 --runtime=runc -t -d #your-image-name
+````
 This command maps port 8080 of the container to port 8080 of your host machine and starts the container in detached mode.
-</div>
+
 
 <h1>Accessing the API</h1>
 Once the Docker container is running, you can access the API documentation using Swagger UI:
@@ -28,7 +32,7 @@ Open a web browser and navigate to:
 This will open the Swagger UI interface where you can explore the available API endpoints, view documentation, and test requests.
 
 <h3>API: /receipts/process</h3>
-<json>
+````code
     curl --location 'localhost:8080/receipts/process' \
     --header 'Content-Type: application/json' \
     --data '{
@@ -52,10 +56,18 @@ This will open the Swagger UI interface where you can explore the available API 
       ],
       "total": "9.00"
     }'
-</json>
+</code>
+````
 
 
 <h3>API: /receipts/{id}/points</h3>
-<json>
+````code
     curl --location 'localhost:8080/receipts/{id}/points'
-</json>
+````
+
+<h2>Setting Up IntelliJ for Fetch Backend Project</h2>
+
+Prerequisites:
+* **Java Development Kit (JDK)**: JDK 17
+* **IntelliJ IDEA:** Download and install IntelliJ IDEA Community or Ultimate edition.
+* **Git**: Install Git for version control (optional, but recommended).
